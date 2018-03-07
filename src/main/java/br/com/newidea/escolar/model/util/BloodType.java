@@ -1,4 +1,4 @@
-package br.com.newidea.escolar.model;
+package br.com.newidea.escolar.model.util;
 
 public enum BloodType {
     O_NEGATIVE,

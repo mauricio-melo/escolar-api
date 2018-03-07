@@ -1,5 +1,8 @@
 package br.com.newidea.escolar.model;
 
+import br.com.newidea.escolar.model.util.Address;
+import br.com.newidea.escolar.model.util.BloodType;
+import br.com.newidea.escolar.model.util.IdentityCard;
 import lombok.*;
 
 import javax.persistence.*;
