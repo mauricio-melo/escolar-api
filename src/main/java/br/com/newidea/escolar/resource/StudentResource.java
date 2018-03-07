@@ -30,29 +30,29 @@ public class StudentResource {
         // Gerando novo URI criado
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(entity.getId())
+                .path("/{studentId}")
+                .buildAndExpand(entity.getStudentId())
                 .toUri();
 
         // Retornando a responseActivity com o status created
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> update(@PathVariable Long id, @Valid @RequestBody final StudentEntity student) {
+    @PutMapping(path = "/{studentId}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> update(@PathVariable Long studentId, @Valid @RequestBody final StudentEntity student) {
 
         // Acionando service update
-        final StudentEntity entity = service.update(id, student);
+        final StudentEntity entity = service.update(studentId, student);
 
         // Retornando a responseEntity com o response com o status ok
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<StudentEntity> findById(@PathVariable final Long id) {
+    @GetMapping(path = "/{studentId}", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<StudentEntity> findById(@PathVariable final Long studentId) {
 
-        // Efetuando busca da entidade na base dados pelo id
-        final StudentEntity entity = service.findById(id);
+        // Efetuando busca da entidade na base dados pelo studentId
+        final StudentEntity entity = service.findById(studentId);
 
         // Retornando a responseEntity com o response com o status ok
         return ResponseEntity.ok(entity);
@@ -68,11 +68,11 @@ public class StudentResource {
         return ResponseEntity.ok(entityList);
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+    @DeleteMapping("{studentId}")
+    public ResponseEntity<Void> delete(@PathVariable("studentId") Long studentId) {
 
         // Acionando service delete
-        service.deleteById(id);
+        service.deleteById(studentId);
 
         // Retornando a responseEntity com o response com status ok
         return ResponseEntity.ok().build();

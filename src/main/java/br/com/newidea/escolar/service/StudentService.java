@@ -21,10 +21,10 @@ public class StudentService {
 
     public StudentEntity update(Long id, StudentEntity student) {
         StudentEntity studentSaved = studentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", "id", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Student", "studentId", id));
 
-        //transfere dados de student para studentSaved, ignorando o campo id
-        BeanUtils.copyProperties(student, studentSaved, "id");
+        //transfere dados de student para studentSaved, ignorando o campo studentId
+        BeanUtils.copyProperties(student, studentSaved, "studentId");
 
         return studentRepository.save(studentSaved);
     }
@@ -39,7 +39,7 @@ public class StudentService {
 
     public StudentEntity findById(Long id) {
         return studentRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Student", "id", id));
+            .orElseThrow(() -> new ResourceNotFoundException("Student", "studentId", id));
     }
 
 

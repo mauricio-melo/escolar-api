@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Data
 @Builder
-@ToString(of = {"id"})
+@ToString(of = {"studentId"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -18,7 +18,7 @@ public class StudentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long studentId;
 
     @Column(nullable = false)
     private String name;
