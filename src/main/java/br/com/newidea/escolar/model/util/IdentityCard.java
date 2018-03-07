@@ -27,9 +27,9 @@ public class IdentityCard {
     @Column(name = "father_name", nullable = false)
     private String fatherName;
 
-    //@Temporal(TemporalType.DATE)
-    //@Column(name = "emission_date", nullable = false)
-    //private Date emissionDate;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "emission_date", nullable = false)
+    private Date emissionDate;
 
     @Column(nullable = false)
     private String local;
