@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Builder
-@ToString(of = {"studentId"})
+@ToString(of = {"registrationId"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -18,16 +18,17 @@ public class RegistrationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long registrationId;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "registration_date")
+    private Date registrationDate;
+
     @ManyToOne
+    @JoinColumn(name="student_id")
     private StudentEntity student;
 
     @ManyToOne
+    @JoinColumn(name="class_id")
     private ClassEntity classEntity;
-
-    @Temporal(TemporalType.TIMESTAMP)
-
-    @Column(name = "registration_date")
-    private Date registrationDate;
 
     @PrePersist
     public void beforeInsert() {

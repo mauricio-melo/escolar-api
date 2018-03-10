@@ -1,5 +1,6 @@
 package br.com.newidea.escolar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Data
 @Builder
-@ToString(of = {"studentId"})
+@ToString(of = {"courseId"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -22,7 +23,8 @@ public class CourseEntity {
     private String name;
     private BigDecimal value;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "course")
-    private List<ClassEntity> listClass;
+    private List<ClassEntity> classEntity;
 
 }

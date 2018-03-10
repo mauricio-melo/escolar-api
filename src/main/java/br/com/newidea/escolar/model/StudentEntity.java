@@ -6,6 +6,7 @@ import br.com.newidea.escolar.model.util.IdentityCard;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
@@ -39,5 +40,8 @@ public class StudentEntity {
 
     @Embedded
     private Address address;
+
+    //@OneToMany(mappedBy = "student")
+    //private List<RegistrationEntity> registration;
 
 }

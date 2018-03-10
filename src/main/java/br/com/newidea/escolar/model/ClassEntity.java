@@ -1,5 +1,6 @@
 package br.com.newidea.escolar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,11 +9,12 @@ import java.util.List;
 
 @Data
 @Builder
-@ToString(of = {"studentId"})
+@ToString(of = {"classId"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "class")
+
 public class ClassEntity {
 
     @Id
@@ -20,20 +22,26 @@ public class ClassEntity {
     private Long classId;
 
     private String period;
-    //private Date startDate;
-    //private Date endDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "start_date", nullable = false)
+    private Date startDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "end_date", nullable = false)
+    private Date endDate;
+
     private String startHour;
-    private String timeTable;
     private int vacancy;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //TODO: VER COM O FABIO O PORQUE TA VINDO NULL
+    @ManyToOne
     @JoinColumn(name = "course_id")
     private CourseEntity course;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "registration", joinColumns = @JoinColumn(name = "course_id"),
+    @ManyToMany
+    @JoinTable(name = "registration", joinColumns = @JoinColumn(name = "class_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private StudentEntity student;
-
+    private List<StudentEntity> student;
 
 }
