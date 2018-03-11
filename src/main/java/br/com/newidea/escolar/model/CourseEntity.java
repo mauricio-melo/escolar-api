@@ -23,8 +23,8 @@ public class CourseEntity {
     private String name;
     private BigDecimal value;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "course")
-    private List<ClassEntity> classEntity;
+    //@JsonIgnore
+    //@OneToMany(mappedBy = "course")
+    //private List<ClassEntity> classEntity;
 
 }

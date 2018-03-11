@@ -21,11 +21,8 @@ public class IdentityCard {
     @Column(nullable = false)
     private String rg;
 
-    @Column(name = "mother_name", nullable = false)
-    private String motherName;
-
-    @Column(name = "father_name", nullable = false)
-    private String fatherName;
+    @Column(nullable = false)
+    private String responsible;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "emission_date", nullable = false)

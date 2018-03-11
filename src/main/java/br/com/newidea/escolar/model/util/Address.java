@@ -16,9 +16,6 @@ public class Address {
     private String street;
 
     @Column(nullable = false)
-    private String number;
-
-    @Column(nullable = false)
     private String neighborhood;
 
     @Column(nullable = false)
