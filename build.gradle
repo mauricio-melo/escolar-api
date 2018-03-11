@@ -39,6 +39,10 @@ dependencies {
 	compile(group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml')
 	compile(group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations')
 	compile(group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider')
+
+	// Swagger
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
 }
 
 
