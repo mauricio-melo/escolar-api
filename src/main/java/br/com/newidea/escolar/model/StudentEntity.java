@@ -1,12 +1,10 @@
 package br.com.newidea.escolar.model;
 
 import br.com.newidea.escolar.model.util.Address;
-import br.com.newidea.escolar.model.util.BloodType;
 import br.com.newidea.escolar.model.util.IdentityCard;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Builder
@@ -27,13 +25,14 @@ public class StudentEntity {
     @Column(nullable = false)
     private String scholarity;
 
+    @Column(nullable = false)
     private String telephone;
 
     @Column(nullable = false)
     private String cellphone;
 
-    @Enumerated(EnumType.STRING)
-    private BloodType bloodType;
+    @Column(nullable = false)
+    private String bloodType;
 
     @Embedded
     private IdentityCard identityCard;
